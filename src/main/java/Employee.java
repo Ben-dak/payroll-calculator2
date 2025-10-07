@@ -11,11 +11,18 @@ public class Employee {
         this.payRate = payRate;
     }
 
-    public int getId() { return eeId; }
-    public String getName() { return eeName; }
-    public double getHoursWorked() { return hoursWorked; }
-    public double getPayRate() { return payRate; }
-
+    public int getId() {
+        return eeId;
+    }
+    public String getName() {
+        return eeName;
+    }
+    public double getHoursWorked() {
+        return hoursWorked;
+    }
+    public double getPayRate() {
+        return payRate;
+    }
     public double getGrossPay() {
         return hoursWorked * payRate;
     }
