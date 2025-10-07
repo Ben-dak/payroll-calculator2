@@ -1,5 +1,5 @@
 public class Employee {
-    int id;
+    int eeId;
     String name;
     double hoursWorked;
     double payRate;
