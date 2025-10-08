@@ -5,22 +5,35 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        String fileName = "employees.csv";
-        String input;
 
         try {
             FileReader fileReader = new FileReader("src/main/resources/employees.csv");
-            BufferedReader bufReader = new BufferedReader(fileReader);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            while ((input = bufReader.readLine()) != null) {
-                System.out.println(input);
+            bufferedReader.readLine();
+
+            String input;
+
+            while ((input = bufferedReader.readLine()) != null) {
+
+                String[] sections = input.split("\\|");
+
+                int id = Integer.parseInt(sections[0]);
+                String name = sections[1];
+                double hoursWorked = Double.parseDouble(sections[2]);
+                double payRate = Double.parseDouble(sections[3]);
+
+                Employee employee = new Employee(id, name, hoursWorked, payRate);
+
+                System.out.printf("Employee ID: %d | Name: %s | Gross Pay: $%.2f%n",
+                        employee.getId(),
+                        employee.getName(),
+                        employee.getGrossPay());
             }
-
-        }catch (FileNotFoundException e) {
-            System.out.println("Couldnt find file: " + e);
+        } catch (FileNotFoundException e) {
+            System.out.println("Couldn't find the file: " + e.getMessage());
         } catch (IOException e) {
-            System.out.println("Unexpected IO exception: " + e);
+            System.out.println("IO Exception: " + e.getMessage());
         }
-
     }
 }

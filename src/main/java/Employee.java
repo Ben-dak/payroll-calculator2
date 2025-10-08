@@ -3,6 +3,7 @@ public class Employee {
     private String eeName;
     private double hoursWorked;
     private double payRate;
+    private double grossPay;
 
     public Employee(int id, String name, double hoursWorked, double payRate) {
         this.eeId = id;
@@ -26,5 +27,6 @@ public class Employee {
     public double getGrossPay() {
         return hoursWorked * payRate;
     }
+
 
 }
